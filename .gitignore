@@ -1,0 +1,52 @@
+# Python virtual environments
+env/
+venv/
+ENV/
+.venv/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.eggs/
+*.manifest
+*.spec
+
+# Test and coverage reports
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Editor/IDE settings
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker artifacts
+*.sqlite3
+.dockerignore
+
+# Node modules (if any frontend is added)
+node_modules/
+
+# Git itself
+.git/
+
+# Misc
+*.bak
+*.tmp

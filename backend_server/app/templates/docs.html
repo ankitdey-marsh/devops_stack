@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .endpoint {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .method {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .get { background-color: #61affe; color: white; }
+        .post { background-color: #49cc90; color: white; }
+        .put { background-color: #fca130; color: white; }
+        .delete { background-color: #f93e3e; color: white; }
+        .url {
+            background-color: #f5f5f5;
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 3px;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Backend API Documentation</h1>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <div class="url">/api/health</div>
+        <p>Health check endpoint that returns server status and current time.</p>
+        <h4>Response Example:</h4>
+        <pre><code>{
+    "status": "ok",
+    "time": "2025-11-02T12:00:00Z"
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <div class="url">/api/hello?name=world</div>
+        <p>Returns a greeting message. Supports optional name parameter.</p>
+        <h4>Query Parameters:</h4>
+        <ul>
+            <li><code>name</code> (optional): Name to greet</li>
+        </ul>
+        <h4>Response Example:</h4>
+        <pre><code>{
+    "message": "Hello, world!"
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <span class="method post">POST</span>
+        <div class="url">/api/echo</div>
+        <p>Echoes back the JSON payload sent in the request.</p>
+        <h4>Request Body Example:</h4>
+        <pre><code>{
+    "message": "test",
+    "data": { "key": "value" }
+}</code></pre>
+        <h4>Response Example:</h4>
+        <pre><code>{
+    "echo": {
+        "message": "test",
+        "data": { "key": "value" }
+    }
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <div class="url">/api/add?a=5&b=3</div>
+        <p>Adds two numbers provided as query parameters.</p>
+        <h4>Query Parameters:</h4>
+        <ul>
+            <li><code>a</code>: First number</li>
+            <li><code>b</code>: Second number</li>
+        </ul>
+        <h4>Response Example:</h4>
+        <pre><code>{
+    "a": 5,
+    "b": 3,
+    "sum": 8
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <span class="method get">GET</span>
+        <div class="url">/api/items</div>
+        <p>Lists all items in the store.</p>
+        <h4>Response Example:</h4>
+        <pre><code>{
+    "items": [
+        {
+            "id": "uuid-here",
+            "name": "Item 1",
+            "data": {},
+            "created_at": "2025-11-02T12:00:00Z"
+        }
+    ]
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <span class="method post">POST</span>
+        <div class="url">/api/items</div>
+        <p>Creates a new item.</p>
+        <h4>Request Body Example:</h4>
+        <pre><code>{
+    "name": "New Item",
+    "data": {
+        "description": "Optional metadata"
+    }
+}</code></pre>
+        <h4>Response Example:</h4>
+        <pre><code>{
+    "id": "generated-uuid",
+    "name": "New Item",
+    "data": {
+        "description": "Optional metadata"
+    },
+    "created_at": "2025-11-02T12:00:00Z"
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <span class="method put">PUT</span>
+        <div class="url">/api/items/{item_id}</div>
+        <p>Updates an existing item by ID.</p>
+        <h4>Request Body Example:</h4>
+        <pre><code>{
+    "name": "Updated Name",
+    "data": {
+        "updated": true
+    }
+}</code></pre>
+        <h4>Response Example:</h4>
+        <pre><code>{
+    "id": "item-id",
+    "name": "Updated Name",
+    "data": {
+        "updated": true
+    },
+    "updated_at": "2025-11-02T12:00:00Z"
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <span class="method delete">DELETE</span>
+        <div class="url">/api/items/{item_id}</div>
+        <p>Deletes an item by ID.</p>
+        <h4>Response Example:</h4>
+        <pre><code>{
+    "deleted": "item-id"
+}</code></pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+services:
+  backend:
+    build:
+      context: ../          # The build context is the project root
+      dockerfile: docker/Dockerfile
+    image: devapi
+    container_name: backend_server
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=run.py
+    restart: always
