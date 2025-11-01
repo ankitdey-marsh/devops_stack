@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: devapi:latest
+          image: personalankitdey/devapi:latest
           ports:
             - containerPort: 5000
           resources:
